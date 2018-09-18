@@ -37,6 +37,8 @@ app.get(
 );
 
 
+//redir uri route  handler
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 
 
