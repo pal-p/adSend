@@ -16,7 +16,7 @@ app.get('/', (req,res) =>{
 //a) dynamicport bind for heroku
 //if underlying env of heroku has defined port(for production) use it, or by default use 3000 (in development) 
 const PORT = process.env.PORT || 3000;
-
+app.listen(PORT);
 //b) tell heroku the version of node to use: package.json -> engines
 
 //c tell heroku how to run our server.package.json scripts section "start": "node index.js"
