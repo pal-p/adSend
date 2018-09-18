@@ -20,8 +20,10 @@ passport.use(
    clientID: keys.googleClientId,
    clientSecret: keys.googleClientSecret,
    callbackURL: '/auth/google/callback'//this is the url user is redirected to our srvr after giving premision 
- }, (accessToken) => {
-    console.log('accessToken:',accessToken);
+ }, (accessToken, refreshToken, profile, done) => {
+    console.log('accessToken',accessToken);
+    console.log('refreshToken',refreshToken);
+    console.log('profile:',profile);
     })
 );
 
