@@ -1,6 +1,11 @@
 //#create our express server and new route handler.it is the root file.create express application and logic to handle requests here.
 const express = require('express');
+const keys = require('./config/keys');
+require('./models/User');
 require('./services/passport');
+
+const mongoose = require('mongoose');
+mongoose.connect(keys.mongoURI);
 
 //const authRoutes = require ('./routes/authRoutes');
 
