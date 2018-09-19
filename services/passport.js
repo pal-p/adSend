@@ -20,8 +20,21 @@ passport.use(
    clientSecret: keys.googleClientSecret,
    callbackURL: '/auth/google/callback'//this is the url user is redirected to our srvr after giving premision 
  }, (accessToken, refreshToken, profile, done) => {
-     new User({googleId: profile.id}).save();
-     
+      User.findOne({googleId: profile.id})
+       .then((existingUser) =>{
+          if(existingUser){//already have this user in db
+
+            //null=everything good, existingUser=found user
+            done(null, existingUser);
+          }
+          else{
+            //create user instance in js world and save it to mongodb by .save
+            new User({googleId: profile.id})
+              .save()
+              .then(user => done(null, user));
+          }
+
+       })
     
     })
 );
