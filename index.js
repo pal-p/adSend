@@ -7,14 +7,39 @@ require('./services/passport');
 const mongoose = require('mongoose');
 mongoose.connect(keys.mongoURI);
 
+//cookie auth
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+
+
 //const authRoutes = require ('./routes/authRoutes');
 
 //create the exp application can have many in one node js proj.gets the req from node and hands to handlers...
 const app =express(); 
 
+
+
+app.use(
+  //pass a cofiguration obj to cookieSession now:
+  cookieSession({
+  //maxtime for cookie to live in the browser = 1 month in mili sec
+  maxAge : 30*24*60*60*1000,
+  // key to encrypt cookie.array lets multiple keys to rand use one as extra security.put the key inside keys.js
+  keys: [keys.cookieKey]
+  })
+);
+//tell passport to use cookies
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 //use authRoutes file here!
 //authRoutes(app);
 require ('./routes/authRoutes')(app);
+
+
+
+
 
 //listen on port 3000
 //app.listen(3000);

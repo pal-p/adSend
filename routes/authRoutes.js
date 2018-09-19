@@ -16,4 +16,17 @@ module.exports = app => {
 	//redir uri route  handler
 	app.get('/auth/google/callback', passport.authenticate('google'));
 
+              
+
+     //test auth by showing req.user 
+     app.get('/api/current_user', (req,res) =>{
+               res.send(req.user);
+     });
+     //log out req.user 
+     app.get('/api/logout', (req,res) =>{
+               req.logout(); //logout func attached to req automatically by passport
+     
+               res.send("you are logged out" + req.user);
+       });
+
 };
