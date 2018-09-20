@@ -4,4 +4,4 @@ module.exports = {
   mongoURI:'mongodb://palAdsend:ojanak2018@ds161322.mlab.com:61322/adsenddev',
   cookieKey: 'fdjjdjdjdjdfdjdydytrrrythgcvhgmnlkpop'
 };
-//dont commit this!
+//dont commit this!!
