@@ -32,7 +32,8 @@ passport.use(
  new GoogleStrategy({
    clientID: keys.googleClientId,
    clientSecret: keys.googleClientSecret,
-   callbackURL: '/auth/google/callback'//this is the url user is redirected to our srvr after giving premision 
+   callbackURL: '/auth/google/callback',//this is the url user is redirected to our srvr after giving premision 
+   proxy: true
  }, (accessToken, refreshToken, profile, done) => {
       User.findOne({googleId: profile.id})
        .then((existingUser) =>{
