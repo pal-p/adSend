@@ -36,7 +36,7 @@ passport.use(
    proxy: true
  }, (accessToken, refreshToken, profile, done) => {
       console.log('access token is', accessToken);
-      User.findOne({googleId: profile.id})
+     /* User.findOne({googleId: profile.id})
        .then((existingUser) =>{
           if(existingUser){//already have this user in db
 
@@ -50,7 +50,7 @@ passport.use(
               .then(user => done(null, user));
           }
 
-       })
+       })*/
     
     })
 );
