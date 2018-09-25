@@ -35,8 +35,8 @@ passport.use(
    callbackURL: '/auth/google/callback',//this is the url user is redirected to our srvr after giving premision 
    proxy: true
  }, (accessToken, refreshToken, profile, done) => {
-      console.log('access token is', accessToken);
-     /* User.findOne({googleId: profile.id})
+     console.log('access token is', accessToken);
+     User.findOne({googleId: profile.id})
        .then((existingUser) =>{
           if(existingUser){//already have this user in db
 
@@ -50,7 +50,7 @@ passport.use(
               .then(user => done(null, user));
           }
 
-       })*/
+       })
     
     })
 );
