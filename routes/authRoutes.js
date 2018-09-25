@@ -29,4 +29,6 @@ module.exports = app => {
                res.send("you are logged out" + req.user);
        });
 
+
+
 };
