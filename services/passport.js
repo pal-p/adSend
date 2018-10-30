@@ -34,6 +34,32 @@ passport.use(
    clientSecret: keys.googleClientSecret,
    callbackURL: '/auth/google/callback',//this is the url user is redirected to our srvr after giving premision 
    proxy: true
+ }, async (accessToken, refreshToken, profile, done) => {
+     const existingUser = await User.findOne({googleId: profile.id});
+       
+     if(existingUser){//already have this user in db
+
+            //null=everything good, existingUser=found user
+            done(null, existingUser);
+     }
+     else{
+            //create user instance in js world and save it to mongodb by .save
+            const user = await new User({googleId: profile.id})
+              .save();
+              done(null, user);
+     }
+
+      
+    
+    })
+);
+/*
+passport.use( 
+ new GoogleStrategy({
+   clientID: keys.googleClientId,
+   clientSecret: keys.googleClientSecret,
+   callbackURL: '/auth/google/callback',//this is the url user is redirected to our srvr after giving premision 
+   proxy: true
  }, (accessToken, refreshToken, profile, done) => {
      User.findOne({googleId: profile.id})
        .then((existingUser) =>{
@@ -53,4 +79,4 @@ passport.use(
     
     })
 );
-
+*/

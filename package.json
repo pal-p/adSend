@@ -8,12 +8,15 @@
     "npm": "5.4.2"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+   "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "palwasha pordeli",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.0.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
     "mongoose": "^5.2.15",
