@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
+import Header from './Header';
 
-const Header = () => <h2>header! </h2>;
 const Dashboard= () => <h2>dashboard! </h2>;
 const SurveyNew= () => <h2>surveynew! </h2>;
 const Landing= () => <h2>jigarak landing! </h2>;
@@ -10,9 +10,10 @@ const Landing= () => <h2>jigarak landing! </h2>;
 
 const App = () => {
   
-     return(
+  return(
+    <div className ="container">
       <BrowserRouter>
-       <div>
+       <div >
           <Header />
           <Route exact path="/" component = {Landing}/>
           <Route exact path="/surveys" component = {Dashboard}/>
@@ -20,6 +21,7 @@ const App = () => {
        
        </div>
       </BrowserRouter>
+     </div>
      );
    
 };
