@@ -1,21 +1,28 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 class Header extends Component {
-   
+  
   render(){
      return(
        <nav>
           <div className="nav-wrapper" >
-     
-             <ul className="left brand-logo">
-                 <li> adSender</li>
+             <a className="left brand-logo">
+                adSender
        
+             </a>
+             <ul className ="right">
+                <li> 
+                   <a>Login with Google </a>
+                </li>
              </ul>
-   
           </div>
        </nav>
      );
   }
 };
 
-export default Header;
+function mapStateToProps(state){
+  return {auth:state.auth};
+};
+export default connect(mapStateToProps)(Header);
 
