@@ -24,9 +24,10 @@ module.exports = app => {
      });
      //log out req.user 
      app.get('/api/logout', (req,res) =>{
-               req.logout(); //logout func attached to req automatically by passport
+               req.logout(); 
+               //logout func attached to req automatically by passport
      
-               res.send("you are logged out" + req.user);
+               res.redirect('/');
        });
 
 
