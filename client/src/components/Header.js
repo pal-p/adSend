@@ -6,9 +6,9 @@ class Header extends Component {
        case null:
           return;
        case false:
-          return <li><a href="/auth/google"> Login with google </a></li>
+          return <li><a href="/auth/google" style={{color:'#5c0303'}}> Login with google </a></li>
        default:
-          return <li><a href="/api/logout">Logout</a></li>
+          return <li><a href="/api/logout" style={{color:'#5c0303'}}>Logout</a></li>
           
     }
   }
@@ -16,12 +16,12 @@ class Header extends Component {
      //console.log(this.props);
      return(
        <nav>
-          <div className="nav-wrapper" >
-             <a className="left brand-logo">
+          <div className="nav-wrapper" style={{ backgroundColor: '#ecc7c7'}}>
+             <a className="left brand-logo" style={{color:'#5c0303'}}>
                 adSender
        
              </a>
-             <ul className ="right">
+             <ul className ="right" >
                 
                    {this.renderContent()}
                 
