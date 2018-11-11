@@ -14,7 +14,7 @@ module.exports = app => {
 
 
 	//redir uri route  handler
-	app.get('/auth/google/callback', passport.authenticate('google'));
+	app.get('/auth/google/callback', passport.authenticate('google'), (req,res)=> {res.redirect('/surveys')});
 
               
 
