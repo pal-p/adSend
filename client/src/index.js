@@ -10,3 +10,6 @@ import reducers from './reducers';
 const store = createStore(reducers,{}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.querySelector('#root'));
+
+console.log('STRIPEEEEEE KEY', process.env.REACT_APP_STRIPE_KEY);
+console.log('NODE ENVVVVVVVVV' , process.env.NODE_ENV);
