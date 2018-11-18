@@ -3,9 +3,25 @@ const stripe = require('stripe')(keys.stripeSecretKey);
 
 module.exports = app => {
   
-   app.post('/api/stripe', (req,res) =>{
-     console.log(req.body);
-    // console.log("lklklklklklkl");
+   app.post('/api/stripe', async (req,res) =>{
+     //console.log(req.body);
+     const charge = await stripe.charges.create({
+        amount: 500,
+        currency: 'usd',
+        description: '$5 for 5 email credits',
+        source: req.body.id
+     });
+     console.log(charge);
    });
+
+   /*app.post('/api/stripe', (req,res) =>{
+     //console.log(req.body);
+     stripe.charges.create({
+        amount: 500,
+        currency: 'usd',
+        description: '$5 for 5 email credits',
+        source: req.body.id
+     });
+   });*/
 };
 
