@@ -11,11 +11,15 @@ mongoose.connect(keys.mongoURI);
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
+const bodyParser = require ('body-parser');
 
 //const authRoutes = require ('./routes/authRoutes');
 
 //create the exp application can have many in one node js proj.gets the req from node and hands to handlers...
 const app =express(); 
+
+//body-parser middlewear
+app.use(bodyParser.json());
 
 
 
@@ -37,8 +41,7 @@ app.use(passport.session());
 //authRoutes(app);
 require ('./routes/authRoutes')(app);
 
-
-
+require ('./routes/billingRoutes')(app);
 
 
 //listen on port 5000
