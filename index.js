@@ -44,6 +44,20 @@ require ('./routes/authRoutes')(app);
 require ('./routes/billingRoutes')(app);
 
 
+
+////**** solve challange of making express work in prod mode without react app
+
+if(process.env.NODE_ENV === 'production'){
+  //express serve prod assets
+  app.use(express.static('client/build'));
+ //express serve index.html in prod for routes it doesnt handle
+ const path =require('path');
+ app.get('*', (req,res) =>{
+   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+ }); 
+}
+
+
 //listen on port 5000
 //app.listen(5000);
 
