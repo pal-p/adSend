@@ -7,8 +7,8 @@ const Advertisement = mongoose.model('advertisements');
 module.exports = app => {
  
 
-   app.post('/api/dashboard', requireLogin, requireCredit, (req, res) =>{
-       const { title, subject, body, recipients } = req.body;
+   app.post('/api/dashboard', requireLogin, requireCredit, async (req, res) =>{
+       const { title, subject, body, recipients, salesUrl} = req.body;
 
        const advertisement = new Advertisement({
          title,
@@ -16,11 +16,22 @@ module.exports = app => {
          body,
          recipients: recipients.split(',').map(email => ({ email: email.trim() })),
          _user: req.user.id,
-         dateSent: Date.now()
+         dateSent: Date.now(),
+         salesUrl
        });
        //send email
        const mailer = new Mailer(advertisement, advertisementTemplate(advertisement));
-       mailer.send();
+       
+       try {
+         await mailer.send();
+         await advertisement.save();
+         req.user.credits -= 1;
+         const user = await req.user.save();
+
+         res.send(user);
+        } catch (err) { //throw unprocessable entity error
+       res.status(422).send(err);
+       }
              
    });
 

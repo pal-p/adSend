@@ -8,8 +8,9 @@ module.exports = (advertisement) => {
               <h1 style="color: green"> Super Sale!</h1>
               <h2 style="color: tomato"> ${advertisement.title}</h2>
               <p style="color: green"> ${advertisement.body}</p>
+              
               <div>
-                 <a href="http://localhost:3000" style="color: red"> Shop Now</a>
+                 <a href=${advertisement.salesUrl} style="color: red"> Shop Now</a>
                   
               </div>
             </div>

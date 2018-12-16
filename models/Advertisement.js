@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const RecipientSchema = require('./Recipient');
+//require('mongoose-type-url');
+
 const advertisementSchema = new Schema ({
   
   title:String,
@@ -10,7 +12,8 @@ const advertisementSchema = new Schema ({
   recipients: [RecipientSchema],
   _user: {type: Schema.Types.ObjectId, ref: 'User'},
   dateSent: Date,
-  lastVisited:Date
+  lastVisited:Date,
+  salesUrl: String
 });
 
 mongoose.model('advertisements',advertisementSchema);
