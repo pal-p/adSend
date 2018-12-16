@@ -30,7 +30,7 @@ class Header extends Component {
      return(
        <nav>
           <div className="nav-wrapper" style={{ backgroundColor: '#ddc974'}}>
-             <Link to={this.props.auth ? '/surveys': '/'} className="left brand-logo" style={{color:'#5c0303'}} >
+             <Link to={this.props.auth ? '/dashboard': '/'} className="left brand-logo" style={{color:'#5c0303'}} >
                 adSender
        
              </Link>

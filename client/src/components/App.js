@@ -4,8 +4,8 @@ import Header from './Header';
 import Landing from './Landing';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
-const Dashboard= () => <h2>surveys dashboard! </h2>;
-const SurveyNew= () => <h2>surveynew! </h2>;
+const Dashboard= () => <h2>ads dashboard! </h2>;
+const SurveyNew= () => <h2>adnew! </h2>;
 
 class App extends Component {
 
@@ -22,8 +22,8 @@ class App extends Component {
 	       <div >
 		  <Header />
 		  <Route exact path="/" component = {Landing}/>
-		  <Route exact path="/surveys" component = {Dashboard}/>
-		  <Route  path="/surveys/new" component = {SurveyNew}/>
+		  <Route exact path="/dashboard" component = {Dashboard}/>
+		  <Route  path="/dashboard/new" component = {SurveyNew}/>
 	       
 	       </div>
 	      </BrowserRouter>

@@ -2,6 +2,7 @@
 const express = require('express');
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Advertisement');
 require('./services/passport');
 
 const mongoose = require('mongoose');
@@ -43,7 +44,7 @@ require ('./routes/authRoutes')(app);
 
 require ('./routes/billingRoutes')(app);
 
-
+require ('./routes/advertisementRoutes')(app);
 
 ////**** solve challange of making express work in prod mode without react app
 
