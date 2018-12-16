@@ -5,7 +5,7 @@ import * as actions from '../actions';
 class Payments extends Component{
    render(){
       //debugger;
-      console.log('in payments:!',process.env.REACT_APP_STRIPE_KEY); 
+      //console.log('in payments:!',process.env.REACT_APP_STRIPE_KEY); 
       return(
          <StripeCheckout
              name="adSender"

@@ -4,7 +4,7 @@ import Header from './Header';
 import Landing from './Landing';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
-const Dashboard= () => <h2>ads dashboard! </h2>;
+import Dashboard from './Dashboard';
 const SurveyNew= () => <h2>adnew! </h2>;
 
 class App extends Component {
