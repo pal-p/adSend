@@ -5,7 +5,7 @@ const Dashboard = () => {
    <div> Dashboard ! ! 
     <div class="fixed-action-btn">
       <a class="btn-floating btn-large red">
-      <i class="large material-icons">Add</i>
+      <i class="material-icons">add</i>
      </a>
     </div> 
    </div>
