@@ -1,19 +1,22 @@
+import _ from 'lodash';
 import React , {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import AdvertisementField from './AdvertisementField';
 
+const FIELDS = [
+  { label:'Ad Title', name:'title'},
+  { label:'Subject Line', name:'subject'},
+  { label:'Email Body', name:'body'},
+  { label:'Recipient List', name:'emails'}
+];
 class AdvertisementForm extends Component {
   
   renderFields (){
-    return (
-       <div>
-        <Field label="Ad Title" type="text" name="title"  component={AdvertisementField} />       
-        <Field label="Subject Line" type="text" name="subject"  component={AdvertisementField} />
-        <Field label="Email Body" type="text" name="body"  component={AdvertisementField} />
-        <Field label="Recipients List" type="text" name="recipients"  component={AdvertisementField} />
-       </div>
-    );
+    return _.map(FIELDS, ({label, name}) =>{
+        return <Field component={AdvertisementField} type="text" label={label} name={name}/>
+     });
   }
+  
   render(){
 
     return(
