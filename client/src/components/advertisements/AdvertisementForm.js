@@ -19,5 +19,5 @@ class AdvertisementForm extends Component {
 }
 
 export default reduxForm ({
-  form:AdvertisementForm
+  form:'advertisementForm'
 })(AdvertisementForm);
