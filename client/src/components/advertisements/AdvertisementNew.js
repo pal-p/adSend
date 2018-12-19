@@ -1,3 +1,5 @@
+//shows AdvertisementForm and AdvertisementFormReview
+
 import React , {Component} from 'react';
 import AdvertisementForm from './AdvertisementForm';
 class AdvertisementNew extends Component {
