@@ -7,7 +7,10 @@ class AdvertisementForm extends Component {
   renderFields (){
     return (
        <div>
-        <Field type="text" name="title" component={AdvertisementField} /> 
+        <Field label="Ad Title" type="text" name="title"  component={AdvertisementField} />       
+        <Field label="Subject Line" type="text" name="subject"  component={AdvertisementField} />
+        <Field label="Email Body" type="text" name="body"  component={AdvertisementField} />
+        <Field label="Recipients List" type="text" name="recipients"  component={AdvertisementField} />
        </div>
     );
   }

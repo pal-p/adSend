@@ -1,10 +1,15 @@
 import React from 'react';
 
-export default ({input})=>{
+export default ({input, label})=>{
 
  // console.log(props);
   return(
-     <div><input {...input}  /></div>
+     <div>
+         
+         <label>{label}</label>
+         <input {...input}  />
+         
+     </div>
   );
 
 };
