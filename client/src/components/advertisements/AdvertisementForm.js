@@ -13,7 +13,7 @@ class AdvertisementForm extends Component {
   
   renderFields (){
     return _.map(FIELDS, ({label, name}) =>{
-        return <Field component={AdvertisementField} type="text" label={label} name={name}/>
+        return <Field key={name} component={AdvertisementField} type="text" label={label} name={name}/>
      });
   }
   
