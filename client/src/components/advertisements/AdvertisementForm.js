@@ -45,15 +45,16 @@ class AdvertisementForm extends Component {
 }
 
 function validate (values){
+
    
    const errors ={};
+   errors.emails = validateEmails(values.emails||'');
    _.each (FIELDS, ({name, noValueError})=> {
       if(!values[name]){
          errors[name] = noValueError;
       }
    });
-  errors.emails = validateEmails(values.emails||'');
-   
+  
    return errors;
 };
 export default reduxForm ({
