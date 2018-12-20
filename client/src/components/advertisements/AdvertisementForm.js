@@ -22,15 +22,19 @@ class AdvertisementForm extends Component {
     return(
       <div> 
         
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-           <div> {this.renderFields()} </div>
+        <form  style={{ border: '5px solid #663300' , backgroundColor: '#ffcc80'}}onSubmit={this.props.handleSubmit(values => console.log(values))}>
+          <div> 
+              {this.renderFields()} 
+          </div>
+          
           <Link to="/dashboard" className="red btn-flat white-text"> 
-            Cancel
-            < i className="material-icons right">clear</i>
+                Cancel
+                < i className="material-icons right">clear</i>
           </Link>
           <button type="submit" className="green btn-flat right white-text">Next
               < i className="material-icons right">done</i>
           </button>
+          
         </ form>
       </div>
     );

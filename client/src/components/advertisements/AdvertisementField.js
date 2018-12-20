@@ -7,11 +7,13 @@ export default ({input, label, meta:{error, touched}})=>{
  // console.log(props);
   console.log(touched);
   return(
-     <div style={{ backgroundColor: '#e1d084'}}>
+     <div>
          
-         <label style={{color:'#5c0303'}}>{label}</label>
-         <input {...input}  />
-         <div> {touched && error} </div>
+         <label className="brown-text">{label}</label>
+         <input {...input} style={{marginBottom: '5px'}}/>
+         <div className="red-text" style={{marginBottom: '20px'}}>
+              {touched && error} 
+         </div>
      </div>
   );
 
