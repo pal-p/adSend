@@ -7,7 +7,7 @@ class AdvertisementNew extends Component {
   render(){
 
     return(
-      <div> adnew!!!
+      <div> 
             <AdvertisementForm />
       </div>
       

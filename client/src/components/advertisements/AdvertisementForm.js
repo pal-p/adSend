@@ -2,12 +2,12 @@ import _ from 'lodash';
 import React , {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import AdvertisementField from './AdvertisementField';
-
+import {Link} from 'react-router-dom';
 const FIELDS = [
-  { label:'Ad Title', name:'title'},
-  { label:'Subject Line', name:'subject'},
-  { label:'Email Body', name:'body'},
-  { label:'Recipient List', name:'emails'}
+  { label:'Ad Title', name:'title',noValueError: 'You must provide a title'},
+  { label:'Subject Line', name:'subject', noValueError: 'You must provide a subject'},
+  { label:'Email Body', name:'body', noValueError: 'You must provide a body'},
+  { label:'Recipient List', name:'emails', noValueError: 'You must provide emails'}
 ];
 class AdvertisementForm extends Component {
   
@@ -21,10 +21,14 @@ class AdvertisementForm extends Component {
 
     return(
       <div> 
-        adform!!!
+        
         <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-          {this.renderFields()}
-          <button type="submit" className="green btn-flat right white-text">Submit
+           <div> {this.renderFields()} </div>
+          <Link to="/dashboard" className="red btn-flat white-text"> 
+            Cancel
+            < i className="material-icons right">clear</i>
+          </Link>
+          <button type="submit" className="green btn-flat right white-text">Next
               < i className="material-icons right">done</i>
           </button>
         </ form>
@@ -34,6 +38,16 @@ class AdvertisementForm extends Component {
 
 }
 
+function validate (values){
+   const errors ={};
+   _.each (FIELDS, ({name, noValueError})=> {
+      if(!values[name]){
+         errors[name] = noValueError;
+      }
+   });
+   return errors;
+};
 export default reduxForm ({
+  validate: validate,
   form:'advertisementForm'
 })(AdvertisementForm);
