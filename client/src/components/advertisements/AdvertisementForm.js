@@ -2,7 +2,9 @@ import _ from 'lodash';
 import React , {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import AdvertisementField from './AdvertisementField';
+import validateEmails from '../../utils/validateEmails';
 import {Link} from 'react-router-dom';
+
 const FIELDS = [
   { label:'Ad Title', name:'title',noValueError: 'You must provide a title'},
   { label:'Subject Line', name:'subject', noValueError: 'You must provide a subject'},
@@ -43,12 +45,15 @@ class AdvertisementForm extends Component {
 }
 
 function validate (values){
+   
    const errors ={};
    _.each (FIELDS, ({name, noValueError})=> {
       if(!values[name]){
          errors[name] = noValueError;
       }
    });
+  errors.emails = validateEmails(values.emails||'');
+   
    return errors;
 };
 export default reduxForm ({
