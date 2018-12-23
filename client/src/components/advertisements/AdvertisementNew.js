@@ -12,7 +12,7 @@ class AdvertisementNew extends Component {
   renderContent(){ 
     
      if(this.state.showFormReview){
-       return <AdFormReview />
+       return <AdFormReview onCancel={()=>this.setState({showFormReview: false})}/>;
      }
      else{
        return <AdvertisementForm onAdSubmit={()=> this.setState({showFormReview: true})}/>;
