@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
 const AdFormReview =({ onCancel })=>{
 
      return(
@@ -15,4 +15,10 @@ const AdFormReview =({ onCancel })=>{
   
 };
 
-export default AdFormReview;
+function mapStateToProps(state){
+  console.log(state);
+  return {
+    
+  };
+};
+export default connect(mapStateToProps)(AdFormReview);
