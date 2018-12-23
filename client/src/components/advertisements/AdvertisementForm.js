@@ -24,7 +24,7 @@ class AdvertisementForm extends Component {
     return(
       <div> 
         
-        <form  style={{ border: '5px solid #663300' , backgroundColor: '#ffcc80'}}onSubmit={this.props.handleSubmit(values => console.log(values))}>
+        <form  style={{ border: '5px solid #663300' , backgroundColor: '#ffcc80'}}  onSubmit={this.props.handleSubmit(this.props.onAdSubmit)}>
           <div> 
               {this.renderFields()} 
           </div>
@@ -46,7 +46,6 @@ class AdvertisementForm extends Component {
 
 function validate (values){
 
-   
    const errors ={};
    errors.emails = validateEmails(values.emails||'');
    _.each (FIELDS, ({name, noValueError})=> {
