@@ -57,6 +57,7 @@ function validate (values){
    return errors;
 };
 export default reduxForm ({
-  validate: validate,
-  form:'advertisementForm'
+  validate,
+  form:'advertisementForm',
+  destroyOnUnmount: false
 })(AdvertisementForm);
