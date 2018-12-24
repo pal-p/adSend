@@ -14,3 +14,7 @@ export const handleToken = (token) => async dispatch =>{
      dispatch ({type: FETCH_USER, payload: res.data});
       
 };
+
+export const submitAdvertisement = values =>{
+  return { type: 'submit_dummy_advertisement'};
+};

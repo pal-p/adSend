@@ -2,9 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import formFields from './formFields';
 import _ from 'lodash';
+import * as actions from '../../actions';
 
 
-const AdFormReview =({ onCancel, formValues })=>{
+const AdFormReview =({ onCancel, formValues, submitAdvertisement })=>{
 
      const reviewFields = _.map(formFields, ({name, label}) =>{
         return (
@@ -21,12 +22,12 @@ const AdFormReview =({ onCancel, formValues })=>{
            <h5> Please confirm your input:</h5>
            {reviewFields}
            <button className="yellow darken-3 btn-flat"
-              onClick={onCancel}
+                   onClick={onCancel}
            >
              Back
            </ button>
-           <button className="green btn-flat right">
-              
+           <button className="green btn-flat right"
+                   onClick={()=> submitAdvertisement(formValues)}
            >
              Send
              <i className="material-icons right">email</i>
@@ -43,4 +44,4 @@ function mapStateToProps(state){
     formValues: state.form.advertisementForm.values
   };
 };
-export default connect(mapStateToProps)(AdFormReview);
+export default connect(mapStateToProps, actions)(AdFormReview);
