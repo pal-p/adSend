@@ -25,6 +25,12 @@ const AdFormReview =({ onCancel, formValues })=>{
            >
              Back
            </ button>
+           <button className="green btn-flat right">
+              
+           >
+             Send
+             <i className="material-icons right">email</i>
+           </ button>
         </div>
  
      );
