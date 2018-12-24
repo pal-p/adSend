@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import formFields from './formFields';
 import _ from 'lodash';
 import * as actions from '../../actions';
+import {withRouter} from 'react-router-dom';
 
-
-const AdFormReview =({ onCancel, formValues, submitAdvertisement })=>{
+const AdFormReview =({ onCancel, formValues, submitAdvertisement, history })=>{
 
      const reviewFields = _.map(formFields, ({name, label}) =>{
         return (
@@ -27,7 +27,7 @@ const AdFormReview =({ onCancel, formValues, submitAdvertisement })=>{
              Back
            </ button>
            <button className="green btn-flat right"
-                   onClick={()=> submitAdvertisement(formValues)}
+                   onClick={()=> submitAdvertisement(formValues, history)}
            >
              Send
              <i className="material-icons right">email</i>
@@ -44,4 +44,4 @@ function mapStateToProps(state){
     formValues: state.form.advertisementForm.values
   };
 };
-export default connect(mapStateToProps, actions)(AdFormReview);
+export default connect(mapStateToProps, actions)(withRouter(AdFormReview));
