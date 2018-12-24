@@ -3,6 +3,7 @@
 import React , {Component} from 'react';
 import AdvertisementForm from './AdvertisementForm';
 import AdFormReview from './AdFormReview';
+import {reduxForm} from 'redux-form';
 
 class AdvertisementNew extends Component {
  
@@ -31,4 +32,4 @@ class AdvertisementNew extends Component {
 
 }
 
-export default AdvertisementNew;
+export default  reduxForm({ form: 'advertisementForm'})(AdvertisementNew);
