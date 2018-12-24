@@ -15,6 +15,9 @@ export const handleToken = (token) => async dispatch =>{
       
 };
 
-export const submitAdvertisement = values =>{
-  return { type: 'submit_dummy_advertisement'};
+export const submitAdvertisement = values => async dispatch=>{
+  
+     const res = await axios.post('/api/dashboard', values);
+     dispatch ({type: FETCH_USER, payload: res.data});
+  
 };
