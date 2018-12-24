@@ -9,8 +9,8 @@ const AdFormReview =({ onCancel, formValues, submitAdvertisement, history })=>{
 
      const reviewFields = _.map(formFields, ({name, label}) =>{
         return (
-          <div key={name}>
-             <label>{label}</label>
+          <div key={name} >
+             <label className="brown-text">{label}</label>
              <div>
                 {formValues[name]}
              </div>
@@ -18,8 +18,8 @@ const AdFormReview =({ onCancel, formValues, submitAdvertisement, history })=>{
         );
      });
      return(
-        <div> 
-           <h5> Please confirm your input:</h5>
+        <div style={{backgroundColor:'#ffcc80'}}> 
+           <h5  style={{color:'#b34700'}}>  Please confirm your input:</h5>
            {reviewFields}
            <button className="yellow darken-3 btn-flat"
                    onClick={onCancel}
