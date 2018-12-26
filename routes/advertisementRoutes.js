@@ -6,7 +6,12 @@ const mongoose = require('mongoose');
 const Advertisement = mongoose.model('advertisements');
 module.exports = app => {
  
-
+   app.get('/api/dashboard', requireLogin, async (req,res) =>{
+        const advertisements = await Advertisement.find({_user: req.user.id}) 
+             .select({recipients: false}
+        );
+        res.send(advertisements);
+   });
    app.post('/api/dashboard', requireLogin, requireCredit, async (req, res) =>{
        const { title, subject, body, recipients, salesUrl} = req.body;
 
@@ -35,5 +40,9 @@ module.exports = app => {
              
    });
 
+    app.post('/api/dashboard/webhooks', (req,res)=>{
+             console.log(req.body);
+              res.send({});
+    });
 
 };

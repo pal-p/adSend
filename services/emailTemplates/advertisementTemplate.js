@@ -2,6 +2,7 @@ module.exports = (advertisement) => {
 
    //return '<div> Hello there!</div>'
   // return '<div>'+advertisement.body+'</div>'
+  console.log(advertisement.salesUrl);
   return `<html>
          <body>
             <div style="text-align: center">
