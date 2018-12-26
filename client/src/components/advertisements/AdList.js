@@ -7,8 +7,23 @@ class AdList extends Component {
    componentDidMount(){
      this.props.fetchAd();
    }
+   renderAds () {
+    return this.props.advertisements.map(ad =>{
+      return (
+        <div className="card darken-1">
+          <div className="card-content">
+            <span className="card-title">{ad.title}</span>
+            <p>{ad.body}</p>
+          </div>
+          <div className="card-action">
+           
+          </div>
+        </div>
+      );
+    });
+  }
    render(){
-     return(<div> ad list goes here!</div>);
+     return<div>{this.renderAds()}</div>
    }
 }
 
