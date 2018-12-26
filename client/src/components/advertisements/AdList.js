@@ -10,16 +10,15 @@ class AdList extends Component {
    renderAds () {
     return this.props.advertisements.reverse().map(ad =>{
       return (
-        <div className="card darken-1">
-          <div className="card-content">
-            <span className="card-title">{ad.title}</span>
+        <div className="card darken-1 ">
+          <div className="card-content ">
+            <span className="card-title green-text ">{ad.title}</span>
             <p>{ad.body}</p>
-            <p className="right">
-               Sent On: {new Date(ad.dateSent).toLocaleDateString()}
-            </p>
+            
           </div>
           <div className="card-action">
-           
+              <a>Sent On:{new Date(ad.dateSent).toLocaleDateString()}</a>
+            
           </div>
         </div>
       );
